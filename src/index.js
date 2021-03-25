@@ -12,7 +12,7 @@ const app = express()
 const server =http.createServer(app)
 const io = socket(server)
 
-const port = process.env.port || 1907 
+const port = process.env.PORT || 1907 
 
 const sourcepath = path.join(__dirname, '../public')
 app.use(express.static(sourcepath))
