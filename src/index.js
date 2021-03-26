@@ -40,7 +40,8 @@ io.on('connection' , (socket)=>{
         socket.on('message',(message,callback)=>{ 
            const user= getUser(socket.id)
            const room=user.room.trim().toLowerCase()
-            io.to(room).emit('welcome',generate(message))
+           const username =user.username.trim().toLowerCase()
+            io.to(room).emit('welcome',generate(`${username } ${message }`))
             callback('Delivered')
         })
     socket.on('sendLocation',(coords,callback)=>{ 
